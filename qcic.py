@@ -26,13 +26,13 @@ def check_fs():
 with picamera.PiCamera() as camera:
     try:
         check_fs()
-        tstamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
+        tstamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
         print "recording", tstamp
         camera.start_recording(tstamp + '.h264')
         camera.wait_recording(60)
         while True:
             check_fs()
-            tstamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')
+            tstamp = datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S%f')
             print "recording", tstamp
             camera.split_recording(tstamp + '.h264')
             camera.wait_recording(60)
